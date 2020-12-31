@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Simple setInterval clock</title>
+    <style>
+      p {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="clock"></p>
+    <p>计时：<span>0</span></p>
+    <button class="start">Start</button>
+    <button class="stop">Stop</button>
+    <button class="reset">Reset</button>
+    <script>
+        const start = document.querySelector(".start");
+      const stop = document.querySelector(".stop");
+      const reset = document.querySelector(".reset");
+      const span = document.querySelector("span");
+      function displayTime() {
+        let date = new Date();
+        let time = date.toLocaleTimeString();
+        document.querySelector('.clock').textContent = time;
+      }
+      let t = 0;
+      function click() {
+        t++;
+        span.textContent = t;
+      }
+      let time;
+      start.addEventListener("click", function(e) {
+        time = setInterval(click, 1000);
+      })
+
+      stop.addEventListener('click', function(e) {
+          clearInterval(time);
+      })
+      reset.addEventListener('click', function(e) {
+          t=0;
+          span.textContent = 0;
+          clearInterval(time);
+      })
+
+      displayTime();
+      const createClock = setInterval(displayTime, 1000);
+    </script>
+  </body>
+</html>

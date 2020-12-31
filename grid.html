@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 100px 100px;
+
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .wrapper div,
+        .flex div {
+            background-color: #85dbd7;
+            color: white;
+            border-radius: 5px;
+            flex: 1;
+            /* block-size: 50px; */
+            /* margin: 10px; */
+        }
+
+        .flex {
+            margin-top: 10px;
+            display: flex;
+        }
+
+        h3 {
+            background-color: #85dbd7;
+            color: aliceblue;
+            border-radius: 5px;
+            position: sticky;
+            top: 0px;
+            text-align: center;
+        }
+
+        .icon {
+            width: 50px;
+            height: 30px;
+            color: aliceblue;
+            background-color: #85dbd7;
+            position: fixed;
+            bottom: 50px;
+            right: 10px;
+            text-align: center;
+        }
+
+        .icon a {
+            text-decoration: none;
+        }
+
+        .icon a:hover {
+            color: red;
+        }
+
+        p {
+            background-color: rgb(207, 232, 220);
+            border: 2px solid rgb(79, 185, 227);
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        .positioned {
+            position: relative;
+            /* 相对定位相对于这个元素正常的位置，
+                绝对定位相对于这个元素的父元素
+                固定定位相对于视窗位置 fixed
+                粘性定位sticky 可以正常滑动，当到了设置的位置时则不再动
+            */
+            top: 30px;
+            left: 30px;
+        }
+        .container {
+            height: 300px;
+            column-width: 200px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 固定的图标 -->
+    <div class="icon">
+        <a href="http://localhost:8080">点我</a>
+    </div>
+    <div class="wrapper">
+        <div class="box1">one</div>
+        <div class="box2">two</div>
+        <div class="box3">three</div>
+        <div class="box4">fout</div>
+        <div class="box5">five</div>
+    </div>
+    <div class="flex">
+        <div>one</div>
+        <div>two</div>
+        <div>three</div>
+        <div>four</div>
+        <div>five</div>
+    </div>
+    <h3>我是固定标题</h3>
+    <h1>Positioning</h1>
+
+    <p>I am a basic block level element.</p>
+    <p class="positioned">I am a basic block level element.</p>
+    <p>I am a basic block level element.</p>
+    <div class="container">
+        <h4>Multi-column layout</h4>
+        <p>
+            augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget fermentum sapien.
+
+Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        </p>
+    </div>
+    <div style="height: 1500px;"></div>
+</body>
+
+</html>

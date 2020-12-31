@@ -1,0 +1,40 @@
+:root {
+    font-size: 100px;
+}
+
+html {
+    font-family: sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 0.28rem;
+}
+
+.font-large {
+    font-size: 0.36rem; /* 750px下36px*/
+}
+.font-middle {
+    font-size: 0.32rem; /*750px下32px*/
+}
+.font-normal {
+    font-size: 0.28rem; /*750px下28px*/
+}
+.font-small {
+    font-size: 0.24rem; /*750px下24px*/
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.relative {
+    position: relative;
+}
+.clear {
+    clear: both;
+}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            --main-color: #b4a078;
+            --red-color: #b14141;
+            --font-color: #333;
+            --border-color: hsla(0, 0%, 100%, .5);
+        }
+
+        .container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            color: var(--font-color);
+            background: var(--main-color);
+        }
+
+        .container>div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid grey;
+            box-shadow: 0px 2px 10px 0px rgba(31, 99, 194, 0.16);
+            text-align: center;
+        }
+
+        .container>div>div {
+            width: 100px;
+            height: 100px;
+            margin: 30px auto;
+        }
+
+        /* 半透明边框 */
+        .bantouming-border {
+            border: 5px solid var(--border-color);
+            background: white;
+
+            /*表示将元素的背景延伸到内边距部分，不包含边框，默认会延伸到边框下，所以半透明边框时颜色就会被覆盖； border-box 延伸到边框，content-box只到内容 */
+            background-clip: padding-box;
+        }
+
+        .container .multi-border {
+            width: 30px;
+            height: 30px;
+            margin-top: 80px;
+            background: #fafafa;
+            border-radius: 50%;
+            /* 添加多个边框，设置0偏移 0模糊，只设置半径即可实现多边框效果 但是会不断外扩*/
+            box-shadow: 0 0 0 10px #E8E2D6, 0 0 0 20px #E1D9C9,
+                0 0 0 30px #D9CFBB, 0 0 0 40px #D2C6AE,
+                0 0 0 50px #CABCA0, 0 0 0 60px #C3B393,
+                0 0 0 70px #BBA985, 0 0 0 80px #B4A078;
+        }
+
+        .container .xu-border {
+            border: 5px solid var(--red-color);
+            /* outline 设置轮廓，可以设置样式， 和border有些类似，不同参见文档 */
+            outline: var(--red-color) dashed 1px;
+            outline-offset: -10px;
+        }
+
+        .container .inner-radius {
+            border-radius: 5px;
+            /* box-shadow会按border的边框样式来，所以边框有圆角时阴影也有圆角 */
+            box-shadow: 0 0 0 5px var(--red-color);
+            /* 再外面套一层外线当做边框则可以实现内圆角效果,但是注意outline会外扩占据一部分空间 */
+            outline: 5px solid var(--red-color);
+        }
+
+        .bg-position {
+            border: 5px solid var(--border-color);
+            /* 顺序无关： 依次含义 背景颜色，背景图片，background-origin和clip,repeat,position / size */
+            background: var(--red-color) url(./chelun/img/加入@2x.png) padding-box no-repeat bottom 5px right 10px / auto auto;
+        }
+
+        .container .progress-outer {
+            height: 12px;
+            width: 60%;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-enter {
+            height: inherit;
+            background: rgba(159, 233, 172, 0.2);
+        }
+
+        .progress-bg {
+            width: 60%;
+            height: inherit;
+            border-radius: 6px;
+            background: repeating-linear-gradient(-45deg, #D9CFBB 25%, #C3B393 0, #C3B393 50%, #D9CFBB 0, #D9CFBB 75%, #C3B393 0);
+            background-size: 16px 16px;
+            animation: par 20s linear infinite
+        }
+
+        @keyframes par {
+            to {
+                background-position: 200% 0;
+            }
+        }
+
+        .coupon-card {
+            background-image: radial-gradient(circle at 50px -8px, transparent 20px, var(--red-color) 21px);
+        }
+
+        .container .half-circle {
+            /*半圆*/
+            /* height: 50px;
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0; */
+            /* 四分之一圆 */
+            height: 100px;
+            border-radius: 100% 0 0 0 / 100% 0 0 0;
+            background: #000;
+        }
+
+        .container .sibian>div {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            display:flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .sibian > div::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            transform: skewX(-45deg);
+            border: 1px solid var(--red-color);
+            background: var(--red-color);
+            /* 菱形显示需要注释掉 container的背景 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <div class="bantouming-border">我是半透明边框</div>
+            <div>半透明边框</div>
+        </div>
+        <div>
+            <div class="multi-border"></div>
+            <div>多重边框</div>
+        </div>
+        <div>
+            <div class="xu-border"></div>
+            <div>虚线边框</div>
+        </div>
+        <div>
+            <div class="inner-radius"></div>
+            <div>边框内圆角</div>
+        </div>
+        <div>
+            <div class="bg-position">我是内容</div>
+            <div>背景定位</div>
+        </div>
+        <div>
+            <div class="progress-outer">
+                <div class="progress-enter">
+                    <div class="progress-bg"></div>
+                </div>
+            </div>
+            <div>条纹背景</div>
+        </div>
+        <div>
+            <div class="coupon-card"></div>
+            <div>不规则卡片</div>
+        </div>
+        <div>
+            <div class="half-circle"></div>
+            <div>半圆和四份之一圆</div>
+        </div>
+        <div>
+            <div class="sibian">
+                <div>菱形</div>
+            </div>
+            <div>四边形</div>
+        </div>
+        <div>
+            <figure>
+                <figcaption></figcaption>
+            </figure>
+        </div>
+        <div>
+            <figure>
+                <figcaption></figcaption>
+            </figure>
+        </div>
+        <div>
+            <figure>
+                <figcaption></figcaption>
+            </figure>
+        </div>
+        <div>
+            <figure>
+                <figcaption></figcaption>
+            </figure>
+        </div>
+        <div>
+            <figure>
+                <figcaption></figcaption>
+            </figure>
+        </div>
+        <div>
+            <figure>
+                <figcaption></figcaption>
+            </figure>
+        </div>
+        <div>
+            <figure>
+                <figcaption></figcaption>
+            </figure>
+        </div>
+        <div>
+            <figure>
+                <figcaption></figcaption>
+            </figure>
+        </div>
+        <div>
+            <figure>
+                <figcaption></figcaption>
+            </figure>
+        </div>
+        <div>
+            <figure>
+                <figcaption></figcaption>
+            </figure>
+        </div>
+        <div>
+            <figure>
+                <figcaption></figcaption>
+            </figure>
+        </div>
+</body>
+
+</html>

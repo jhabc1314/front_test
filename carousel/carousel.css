@@ -1,0 +1,37 @@
+#app {
+    margin: 0 auto;
+    max-width: 400px;
+    background: #475669;
+    overflow: hidden;
+    display: flex;
+}
+
+#app img {
+    display: inline-block;
+    width: 100%;
+    max-width: 100%;
+    height: 200px;
+    /* height: auto; */
+    /* transition: all 1s; 所有变换时所需时间，不是动画时间*/
+    /* transition: all 1s; */
+}
+/* #app img:hover {
+    animation: carousel 5s ease 0s 1 reverse paused;
+} */
+
+@keyframes carouselCurrent {
+    from {
+        margin-left: 0%;
+    }
+    to {
+        margin-left: -100%;
+    }
+}
+@keyframes carouselNext {
+    from {
+        /* margin-left:90%; */
+    }
+    to {
+        margin-left: 0%;
+    }
+}

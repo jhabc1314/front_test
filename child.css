@@ -1,0 +1,35 @@
+body {
+    background-color: blue;
+}
+@media(max-width:500px) {
+    body {
+        background-color: pink;
+    }
+}
+
+/* div p:first-line {
+    color: red;
+} */
+p[alt='2'] {
+    color:green;
+}
+
+h1 .cc {
+    color:red;
+}
+
+h1.cc {
+    color:blue;
+}
+
+h1>.cc{
+    font-size: 20px;
+    opacity: 0;
+}
+
+/* h1+.cc{
+    color:pink;
+} */
+button:first-child{
+    color:pink;
+}

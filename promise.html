@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+</head>
+
+<body>
+    <p>This is my page</p>
+    <script>
+        // let promise = fetch("/source/leopardskinx.jpg");
+        // let promise2 = promise.then(response => {
+        //     if (!response.ok) {
+        //         throw new Error(`HTTP error! status: ${response.status}`);
+        //     } else {
+        //         return response.blob();
+        //     }
+        // });
+        // let promise3 = promise2.then(myBlob => {
+        //     let objectURL = URL.createObjectURL(myBlob);
+        //     let image = document.createElement("img");
+        //     image.src = objectURL;
+        //     document.body.appendChild(image);
+        // });
+        // let error = promise3.catch(e => {
+        //     console.log(e.message);
+        // });
+        let a = fetch("/source/kuan.png");
+        let b = fetch("/raw_text.txt");
+        let c = fetch("/source/noise.png");
+        Promise.all([a, b, c]).then(values => {
+            console.log(values);
+        });
+        //aysnc await 重写
+        
+
+
+        function fetchAndDecode(url, type) {
+            return fetch(url).then(response => {
+                if (type === 'blob') {
+                    return response.blob();
+                } else if (type === 'text') {
+                    return response.text();
+                }
+            }).catch(e => {
+                console.log('There has been a problem with your fetch operation: ' + e.message);
+            })
+        }
+        let x = fetchAndDecode("/source/kuan.png", "blob");
+        let y = fetchAndDecode("/source/noise.png", "blob");
+        let z = fetchAndDecode("/raw_text.txt", "text");
+        Promise.all([x, y, z]).then(values => {
+            console.log(values);
+            // Store each value returned from the promises in separate variables; create object URLs from the blobs
+            let objectURL1 = URL.createObjectURL(values[0]);
+            let objectURL2 = URL.createObjectURL(values[1]);
+            let descText = values[2];
+
+            // Display the images in <img> elements
+            let image1 = document.createElement('img');
+            let image2 = document.createElement('img');
+            image1.src = objectURL1;
+            image2.src = objectURL2;
+            document.body.appendChild(image1);
+            document.body.appendChild(image2);
+
+            // Display the text in a paragraph
+            let para = document.createElement('p');
+            para.textContent = descText;
+            document.body.appendChild(para);
+        });
+
+        function timeoutPromise(message, interval) {
+            return new Promise((resolve, reject) => {
+                if (message === '' || typeof message !== 'string') {
+                    reject('Message is empty or not a string');
+                } else if (interval < 0 || typeof interval !== 'number') {
+                    reject('Interval is negative or not a number');
+                } else {
+                    setTimeout(function () {
+                        resolve(message);
+                    }, interval);
+                }
+            });
+        }
+        timeoutPromise('yes', -1000).then(alert).catch(e => {
+            console.log(e);
+        })
+
+        // let timeoutP = new Promise((resolve, reject) => {
+        //     setTimeout(function () {
+        //         resolve("success");
+        //     }, 1000);
+        // });
+        // timeoutP.then(response => {
+        //     alert(response);
+        // });
+
+
+
+    </script>
+</body>
+
+</html>

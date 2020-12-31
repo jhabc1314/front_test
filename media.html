@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>请求</button>
+    <script>
+        function func1(name_name) {
+            alert(name_name);
+            return name_name.split('_');
+        }
+        function func2(name_arr) {
+            console.log(name_arr);
+        }
+
+        let p = new Promise(function() {
+            return 'jh_jh';
+        });
+        p.then(name_name => func1).then(name_arr => func2).catch(function(error) {
+            console.log(error);
+        });
+        window.onkeydown = function(e) {
+            console.log(e);
+        }
+        const b = document.querySelector("button");
+        b.addEventListener("click", function(e) {
+            console.log("try connect");
+            navigator.mediaDevices.getUserMedia({video: true, audio:true})
+            .then(chatStream => {
+              console.log(chatStream);  
+            }).catch(err => {
+                console.log('err' + err);
+            })
+        });
+        fetch("/source/zai.png").then(response => response.blob()).then(myBlob => {
+            let objUrl = URL.createObjectURL(myBlob);
+            let image = document.createElement("img");
+            image.src = objUrl;
+            document.body.appendChild(image);
+        }).catch(e => console.log);
+        //改进1
+        async function myFetch() {
+            let response = await fetch("/source/zai.png");
+            let myBlob = await response.blob();
+            let objUrl = URL.createObjectURL(myBlob);
+            let image = document.createElement("img");
+            image.src = objUrl;
+            document.body.appendChild(image);
+        }
+        myFetch().catch(e => console.log);
+        //改进2 逻辑拆分
+        async function myFetch2() {
+            let response = await fetch("/source/leopardskin.jpg");
+            return await response.blob();
+        }
+        myFetch2().then(myBlob => {
+            let objUrl = URL.createObjectURL(myBlob);
+            let image = document.createElement("img");
+            image.src = objUrl;
+            let a = 123;
+            let b = a.toString();
+            parseInt
+            document.body.appendChild(image);
+        }).catch(e => console.log);
+    </script>
+</body>
+</html>

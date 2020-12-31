@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 500px;
+            border: 5px solid greenyellow;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .container div {
+            width: 100px;
+            height: 100px;
+            background: #35faff;
+        }
+
+        .container div:nth-child(1) {
+            animation-delay: 1s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+            animation-name: first;
+            animation-direction: alternate;
+            animation-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 1.0, 0.1);
+            animation-duration: 2s;
+        }
+
+        @keyframes first {
+            from {
+                margin-left: 100%;
+                /* width: 300%; */
+            }
+
+            to {
+                margin-left: 0%;
+                /* width: 20%; */
+            }
+
+            75% {
+                color: red;
+                font-size: 200%;
+            }
+        }
+        .ball {
+            position: absolute;
+            left: 100px;
+            top: 200px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background:#B4A078 url(./chelun/img/客服@2x.png) no-repeat center;
+            transition: all 1s;
+            transform-style: preserve-3d;
+            transform:translate(100px);
+            
+
+        }
+        .ball:hover {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div>我是窗口</div>
+    </div>
+
+    <h1 id="watchme">watch me move</h1>
+    <p>This example shows how to use CSS animations to make <code>h1</code> elements
+        move across the page.</p>
+    <ul id="output"></ul>
+
+    <div id="ball" class="ball"></div>
+</body>
+<style>
+    .slidein {
+        animation-duration: 3s;
+        animation-name: slidein;
+        animation-direction: alternate;
+        animation-iteration-count: 3;
+    }
+
+    @keyframes slidein {
+        from {
+            margin-left: 100%;
+            width: 300%
+        }
+
+        to {
+            margin-left: 0%;
+            width: 100%;
+        }
+    }
+</style>
+<script>
+    let e = document.getElementById("watchme");
+    e.addEventListener("animationstart", listener, false);
+    e.addEventListener("animationend", listener, false);
+    e.addEventListener("animationiteration", listener, false);
+    e.className = "slidein";
+    function listener(e) {
+        let l = document.createElement("li");
+        switch(e.type) {
+            case "animationstart":
+                l.innerHTML = "Started:elapsed time is " + e.elapsedTime;
+                break;
+            case "animationend":
+                l.innerHTML = "Ended:elapsed time is " + e.elapsedTime;
+                break;
+            case "animationiteration":
+                l.innerHTML = "New loop started at time " + e.elapsedTime;
+                break;
+        }
+        document.getElementById("output").appendChild(l);
+    }
+
+    var ball = document.getElementById("ball");
+    document.addEventListener("click", function(e) {
+        ball.style.left = (e.clientX - 50) + 'px';
+        ball.style.top = (e.clientY - 50) + 'px';
+    })
+</script>
+
+</html>

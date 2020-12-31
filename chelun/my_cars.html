@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的车库</title>
+    <script src="./js/normal.js">
+    </script>
+    <link rel="stylesheet" href="./css/normal.css">
+    <style>
+        .container {
+            max-width: 7.5rem;
+            background: #F4F5F6;
+            margin: 0 auto;
+            /* padding: 0.32rem; */
+            overflow: hidden;
+            /* border: 1px solid red; */
+        }
+
+        .car {
+            /* border: 1px solid red; */
+            /* margin: 0.32rem; */
+            margin: 0.32rem auto;
+            width: 6.86rem;
+            height: 2.25rem;
+            background: #FFFFFF;
+            box-shadow: 0px 4px 0.18rem 0px rgba(153, 153, 153, 0.2);
+            border-radius: 0.2rem;
+            padding: 0.32rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .car header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #333333;
+            font-size: 0.32rem;
+        }
+
+        .car header a {
+            text-decoration: none;
+            color: #999999;
+            font-size: 0.26rem;
+        }
+
+        .car span {
+            padding: 0 .1rem;
+            color: #F56558;
+            font-size: 0.46rem;
+        }
+
+        footer .item-left {
+            display: inline-block;
+            width: 1.54rem;
+            height: 0.4rem;
+            background: #FCEAE8;
+            border-radius: 8px;
+            text-align: center;
+            color: #F56558;
+            font-size: 0.24rem;
+        }
+
+        footer .item-right {
+            display: inline-block;
+            width: 1.48rem;
+            height: 0.40rem;
+            background: #EBF4FF;
+            border-radius: 8px;
+            font-size: 0.24rem;
+            color: #348FFF;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section class="car">
+            <header>
+                <div>沪A12345</div>
+                <div><a href="#">编辑信息</a></div>
+            </header>
+            <main>
+                <div class="font-middle bold">距离年检到期还有<span>100</span>天</div>
+            </main>
+            <footer>
+                <div><span class="item1">上线验车</span><span class="item2">可预约办理</span></div>
+            </footer>
+        </section>
+        <section class="car">
+            <header>
+                <div>沪A12345</div>
+                <div><a href="#">编辑信息</a></div>
+            </header>
+            <main>
+                <div class="font-middle bold">距离年检到期还有<span>100</span>天</div>
+            </main>
+            <footer>
+                <div><span class="item1">上线验车</span><span class="item2">可预约办理</span></div>
+            </footer>
+        </section>
+        <section class="car">
+            <header>
+                <div>沪A12345</div>
+                <div><a href="#">编辑信息</a></div>
+            </header>
+            <main>
+                <div class="font-middle bold">距离年检到期还有<span>100</span>天</div>
+            </main>
+            <footer>
+                <div><span class="item-left">上线验车</span><span class="item-right">可预约办理</span></div>
+            </footer>
+        </section>
+        <section class="car">
+            <header>
+                <div>沪A12345</div>
+                <div><a href="#">编辑信息</a></div>
+            </header>
+            <main>
+                <div class="font-middle bold">距离年检到期还有<span>100</span>天</div>
+            </main>
+            <footer>
+                <div><span class="item1">上线验车</span><span class="item2">可预约办理</span></div>
+            </footer>
+        </section>
+    </div>
+</body>
+
+</html>

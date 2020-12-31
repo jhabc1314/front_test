@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        回顾一下<strong>美术设计问题</strong>
+        <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/picture"
+            title="HTML <picture> 元素通过包含零或多个 <source> 元素和一个 <img> 元素来为不同的显示/设备场景提供图像版本。浏览器会选择最匹配的子 <source> 元素，如果没有匹配的，就选择 <img> 元素的 src 属性中的URL。然后，所选图像呈现在<img>元素占据的空间中。">
+            <code>&lt;picture&gt;</code>
+        </a>
+    </p>
+    <h1 class="aa">
+        <p class="dd">dd</p>
+        <p class="cc">cc</p>
+    </h1>
+    <h1>
+        <p class="ee">ee</p>
+    </h1>
+    <button class="cc">button</button>
+    <button>kaishi</button>
+    <div>
+        <p alt="1">
+            p line1
+            p line1 line2
+        </p>
+        <p alt="2">
+            <span>yes</span>
+            p line2
+        </p>
+    </div>
+    <picture>
+        <source type="image/png" srcset="./source/kuan.png " media="(max-width:500px)">
+        </source>
+        <source type="image/png" srcset="./source/zai.png" media="(min-width:200px)">
+        <img src="./source/1.png" alt="xx">
+        <!-- <img src="./source/zai.png" srcset="./source/zai.png 398w, ./source/kuan.png 1625w"
+            sizes="(max-width:200px) 300px, (max-width:2000px) 1600px" title="图片"> -->
+    </picture>
+
+    <table border="1">
+        <colgroup>
+            <col>
+            </col>
+            <col style="background-color:yellow;">
+            </col>
+        </colgroup>
+        <caption>这是标题</caption>
+        <tr>
+            <th colspan="2">Animals</th>
+        </tr>
+        <tr>
+            <th colspan="2">Hippopotamus</th>
+        </tr>
+        <tr>
+            <th rowspan="2">Horse</th>
+            <td>Mare</td>
+        </tr>
+        <tr>
+            <td>Stallion</td>
+        </tr>
+        <tr>
+            <th colspan="2">Crocodile</th>
+        </tr>
+        <tr>
+            <th rowspan="2">Chicken</th>
+            <td>Hen</td>
+        </tr>
+        <tr>
+            <td>Rooster</td>
+        </tr>
+    </table>
+    <table border>
+        <caption>标题2</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Sex</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Rooster</td>
+                <td>21</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2">角标</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+<style>
+    tbody {
+        font-size: 90%;
+        font-style: italic;
+    }
+
+    tfoot {
+        font-weight: bold;
+    }
+</style>
+
+</html>

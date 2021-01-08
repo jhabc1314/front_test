@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        你
+        好
+        我是内容是
+        和border有些类似，不同参见文档
+        也
+        是
+        在
+        想
+        xu-border
+        吃
+        〔〕
+        的
+
+    </div>
+</body>
+<style>
+    div {
+        width: 100px;
+        overflow: auto;
+        height: 100px;
+    }
+</style>
+<script>
+    let div = document.querySelector("div");
+    console.log(div.scrollTop); //垂直滚动条滚动的距离
+    console.log(div.scrollHeight); //整个可以滚动内容的高度
+    console.log(div.clientHeight); //盒子元素的高度
+    div.addEventListener("scroll", function() {
+        console.log(div.scrollTop);
+        if (div.scrollHeight - div.scrollTop === div.clientHeight) {
+            alert("到底了");
+        }
+    });
+    console.log(location);
+    // setTimeout(function() {
+    //     location.replace("http://m.baidu.com",2000);
+    // });
+
+    const name = '许嵩';
+    const obj = {
+        name:'xx',
+        sayHello:() => {
+            console.log(this);
+            console.log(typeof this.name);
+            console.log(this.name);
+        }
+    }
+    obj.sayHello();
+    let arr1 = [1,2,3];
+    let arr2 = [3,4, ...arr1, 5];
+    let arr3 = arr2.push(...arr1);
+    console.log(arr2);
+    let a1 = ['a', 'n'];
+    //let a2 = Array.from(a1);
+    let a2 = [...a1];
+    a2.push('x');
+    console.log(a2, a1);
+</script>
+</html>

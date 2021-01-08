@@ -9,7 +9,23 @@
     <canvas width="500" height="500">
         您的浏览器暂时不支持
     </canvas>
+    <meter  value="81"    min="0" max="100"  low="60"  high="90"/>
     <script type="module" src="./canvas.js"></script>
+    <script>
+        navigator.geolocation.getCurrentPosition((e) => {
+            console.log(e);
+        }, (e) => {
+            alert("error");
+            console.log(e);
+        });
+        let value = '123';
+        window.sessionStorage.setItem('jh', value);
+        console.log(window.sessionStorage.getItem('jh'));
+        console.log(sessionStorage.key(1));
+        window.addEventListener("online", (e) => {
+            console.log(e);
+        })
+    </script>
     <style>
         canvas {
             border: 1px solid red;

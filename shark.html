@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鲨鱼</title>
+</head>
+<body>
+    <div class="sharkBox">
+        <div class="shark"></div>
+    </div>
+</body>
+<style>
+    .shark {
+        width: 509px;
+        height: 270px;
+        background: url(./source/shark.png) left top;
+        animation: sharkRun 1s steps(8) infinite;
+        transition: all 5s;
+    }
+    div:hover {
+        transform: translate(500px);
+    }
+    .sharkBox {
+        width: 509px;
+        margin-left: -509px;
+        animation: sharkBoxRun 20s linear infinite;
+    }
+    @keyframes sharkRun {
+        0% {}
+        100% {
+            background-position: left -2160px;
+        }
+    }
+    @keyframes sharkBoxRun {
+        from {
+
+        }
+        to {
+            transform: translate(500px) ;
+        }
+    }
+
+</style>
+</html>

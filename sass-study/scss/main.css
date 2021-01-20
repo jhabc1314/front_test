@@ -1,0 +1,41 @@
+@import url(./header.css);
+@use 'sass:meta';
+:root {
+  font-size: 100px; }
+
+body {
+  font-size: .24rem; }
+
+@font-face {
+  src: url("../fonts/roboto/Roboto-Thin.woff2") format("woff2");
+  font-family: "Roboto";
+  font-weight: 100; }
+.post {
+  width: 100px; }
+
+.form {
+  color: #fff; }
+  .form .input {
+    text-align: center; }
+
+.gray {
+  -moz-filter: grayscale(50%);
+  -webkit-filter: grayscale(50%);
+  filter: grayscale(50%); }
+
+.enlarge {
+  font-size: 24px;
+  transition-property: font-size;
+  transition-duration: 2s;
+  transition-delay: 1s; }
+
+.button {
+  color: 20px; }
+
+.test {
+  font-family: 'Courier New', Courier, monospace; }
+
+.test {
+  color: green; }
+
+/*# sourceMappingURL=main.css.map */

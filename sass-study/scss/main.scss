@@ -1,0 +1,64 @@
+// @use 'base';
+@import './header.css';
+@use 'sass:meta';
+:root {
+    font-size:100px;
+}
+body {
+    font-size: .24rem;
+}
+
+$roboto-font-path: "../fonts/roboto";
+@font-face {
+    src: url("#{$roboto-font-path}/Roboto-Thin.woff2") format("woff2");
+    font-family: "Roboto";
+    font-weight: 100;
+}
+
+$min :100px;
+
+.post {
+    width: min($min, 200px);
+}
+.form {
+    color: #fff;
+    .input {
+        text-align: center;
+    }
+}
+
+@mixin prefix($name, $value, $prefixes) {
+    @each $prefix in $prefixes {
+        -#{$prefix}-#{$name}:$value;
+    }
+    #{$name}:$value;
+}
+.gray {
+    @include prefix(filter, grayscale(50%), moz webkit);
+}
+
+.enlarge {
+    font-size:24px;
+    transition: {
+        property:font-size;
+        duration:2s;
+        delay:1s;
+    }
+}
+
+.button {
+    color:20px;
+    background: if(not $min, #fff, null);
+}
+
+$demo1:gray;
+$demo2:pink;
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+.test {
+    @extend %message-shared;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+%message-shared {
+    color:green;
+}

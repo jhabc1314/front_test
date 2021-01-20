@@ -1,0 +1,28 @@
+
+.logo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-default {
+    width: 100px;
+    height: 60px;
+}
+.logoImg {
+    display: inline-block;
+}
+.logo-default .logoImg {
+    width: 23px;
+    height: 23px;
+}
+.logoName {
+    display: inline-block;
+    font-weight: bold;
+    color: #61dafb;
+}
+.logo-default .logoName {
+    margin-left: 10px;
+    font-size: 20px;
+}

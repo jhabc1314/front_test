@@ -2,19 +2,34 @@
   "name": "react-study",
   "version": "1.0.0",
   "description": "- webpack 打包 - react,react-dom - babel 编译 -",
-  "main": "index.js",
+  "private": true,
   "scripts": {
+    "start": "npx webpack",
+    "watch": "",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "normalize.css": "^8.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "webpack": "^5.14.0",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.15.0",
     "webpack-cli": "^4.3.1"
   }
 }

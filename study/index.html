@@ -4,11 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <!-- <link rel="stylesheet" href="./style.css"> -->
     <title>Document</title>
+    <style>
+        p::before {
+            content: '<>';
+            color: aqua;
+        }
+        input::before {
+            content: '><';
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
+    <input type="text" placeholder="搜索">
     <p>
         回顾一下<strong>美术设计问题</strong>
         <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/picture"

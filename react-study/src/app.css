@@ -7,23 +7,20 @@ body {
     margin: 0;
 }
 
-#root {
+#root > div {
     display:flex;
     flex-wrap: wrap;
-    justify-content: center;
-}
-
-section {
-    display: flex;
-    justify-content: center; 
+    justify-content: space-between;
 }
 
 main {
-    flex-grow: 3;
+    flex-grow: 2;
+    padding-left: 333px;
+    max-width: 917px;
 }
 
 aside {
     flex-grow: 1;
     background: #eee;
-    /* border-left: 1px solid; */
+    flex-basis: 606px;
 }

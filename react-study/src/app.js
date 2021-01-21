@@ -2,6 +2,8 @@ import Logo from './components/logo/logo.jsx';
 import React from 'react';
 import Header from './components/header/header.jsx';
 import Nav from './components/nav/nav.jsx';
+import Warning from './components/warning/warning.jsx';
+import Link from './components/link/link.jsx';
 import './app.css';
 import 'normalize.css';
 export default function App() {
@@ -27,6 +29,10 @@ export default function App() {
             <p>
                 React 是一个用于构建用户界面的 JavaScript 库。你可以在首页或教程中学习什么是 React。
                 </p>
+            <Warning title='提示'>当你对一些 JavaScript 知识感到疑惑时，MDN 和 javascript.info 是很棒的资源网站。你也可以去社区支持论坛寻求帮助。</Warning>
+            <p>
+                并非每一个 React 版本都值得我们在博客上发布文章，但你可以在 <Link href='http://www.baidu.com'>React</Link> 代码仓库中的 CHANGELOG.md 文件或更新日志页面找到每个版本的更新日志。
+            </p>
         </main>
         <aside>
             <ul>

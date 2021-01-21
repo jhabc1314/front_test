@@ -1,0 +1,10 @@
+.link {
+    background-color: rgba(187,239,253,0.3);
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.link:hover {
+    background-color: #61dafb;
+}

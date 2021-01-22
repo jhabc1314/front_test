@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <style>
+        html {
+            font-size: 100px;
+        }
+
+        body {
+            font-size: 0.24rem;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+    <link rel="stylesheet" href="./react-header.css">
+    <link rel="stylesheet" href="./react-body.css">
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li>
+                <img src="/logo" alt="">React
+            </li>
+            <li class="active"><a href="#">首页</a></li>
+            <li><a href="#">社区</a></li>
+            <li><a href="#">关于</a></li>
+            <li><a href="#">其他</a></li>
+
+            <li class='search'><input type="text" placeholder="搜索"></li>
+            <li><a href="#">v17.0.1</a></li>
+            <li><a href="#">多语言</a></li>
+            <li><a href="#">GitHub</a></li>
+        </ul>
+    </header>
+    <main style="height: 1000px;">
+        <article>
+            <h1>123</h1>
+            <h1>123</h1>
+            <h1>23</h1>
+            <h1>3</h1>
+            <h1>2</h1>
+            <h1>3</h1>
+            <h1>4</h1>
+            <h1>5</h1>
+            <h1>6</h1>
+            <h1>123</h1>
+        </article>
+        <aside>
+
+        </aside>
+
+    </main>
+    <footer></footer>
+
+    <script>
+        const MAX_FONT = 100;
+        const MAX_WIDTH = 750;
+        let c = (e) => {
+            const width = window.innerWidth;
+            const search = document.querySelector(".search");
+            if (width < MAX_WIDTH) {
+                search.style.display = 'none';
+            } else {
+                search.style.display = 'inline-block';
+                return;
+            }
+            const font = Math.floor(width * 10 / 75);
+            document.querySelector("html").style.fontSize = font + 'px';
+        };
+        c();
+        window.addEventListener("resize", c);
+    </script>
+</body>
+
+</html>

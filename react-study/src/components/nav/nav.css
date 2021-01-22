@@ -2,26 +2,26 @@
   margin: 0;
   list-style: none;
   display: flex;
-  margin-left: 114px;
+  margin-left: 1.14rem;
   padding: 0;
 }
 
 .nav li {
-  min-width: 76px;
-  height: 60px;
-  line-height: 60px;
+  min-width: .76rem;
+  height: .6rem;
+  line-height: .6rem;
   text-align: center;
   color: #fff;
 }
 .nav .header-search {
-  width: 200px;
-  margin-left: 78px;
+  width: 2rem;
+  margin-left: .78rem;
 }
 .nav .header-search input {
     max-width: 90%;
     background-color: #20232a;
     border: none;
-    height: 20px;
+    height: .20rem;
     border-radius: 2px;
 }
 .nav .header-search input:focus {
@@ -40,9 +40,9 @@
 }
 .nav a {
   color: inherit;
-  font-size: 18px;
+  font-size: .18rem;
   text-decoration: none;
-  padding: 0 20px;
+  padding: 0 .20rem;
 }
 
 .nav a:hover {

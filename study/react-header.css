@@ -1,0 +1,83 @@
+header {
+    --bgColor: #20232a;
+    background-color:var(--bgColor);
+    height: .6rem;
+    color:#fff;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+header ul {
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    list-style-type: none;
+    max-width: 12.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header ul li {
+    padding: 0;
+    margin: 0;
+    height: .6rem;
+    line-height: .6rem;
+    text-align: center;
+    /* border: 1px solid black; */
+}
+
+header ul li:nth-child(1) {
+    flex-grow: 4;
+}
+header ul li:nth-child(6) {
+    flex-grow: 4;
+}
+header ul li:nth-child(2) {
+    flex-grow: 1;
+}
+header ul li:nth-child(3) {
+    flex-grow: 1;
+}
+header ul li:nth-child(4) {
+    flex-grow: 1;
+}
+header ul li:nth-child(5) {
+    flex-grow: 1;
+}
+header ul li:nth-child(7) {
+    flex-grow: 1;
+}
+header ul li:nth-child(8) {
+    flex-grow: 1;
+}
+header ul li:nth-child(9) {
+    flex-grow: 1;
+}
+header ul li.active {
+    border-bottom: 2px solid aqua;
+    color: aqua;
+}
+
+header ul li input {
+    background-color: var(--bgColor);
+    border: none;
+    min-width: 0.5rem;
+}
+
+header ul li input:focus {
+    outline: none;
+    background-color: #333;
+}
+
+header ul li a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header ul li a:hover {
+    color:aqua;
+}
+

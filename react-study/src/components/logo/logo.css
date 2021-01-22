@@ -7,15 +7,15 @@
 }
 
 .logo-default {
-    width: 100px;
-    height: 60px;
+    width: 1rem;
+    height: .6rem;
 }
 .logoImg {
     display: inline-block;
 }
 .logo-default .logoImg {
-    width: 23px;
-    height: 23px;
+    width: .23rem;
+    height: .23rem;
 }
 .logoName {
     display: inline-block;
@@ -23,6 +23,6 @@
     color: #61dafb;
 }
 .logo-default .logoName {
-    margin-left: 10px;
-    font-size: 20px;
+    margin-left: .1rem;
+    font-size: .2rem;
 }

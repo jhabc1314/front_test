@@ -1,10 +1,34 @@
-html {
+:root {
+    font-size: 100px;
+}
+/* 从小往大，会匹配到最后一个满足条件的 */
+@media screen and (min-width: 450px) {
+    :root {
+        font-size:45px;
+    }
+}
+
+@media screen and (min-width:750px) {
+    :root {
+        font-size: 75px;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    :root {
+        font-size: 100px;
+    }
+}
+* {
     box-sizing: border-box;
+}
+html {
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
 }
 body {
     padding: 0;
     margin: 0;
+    font-size: 0.24rem;
 }
 
 #root > div {
@@ -15,12 +39,12 @@ body {
 
 main {
     flex-grow: 2;
-    padding-left: 333px;
-    max-width: 917px;
+    padding-left: 3.33rem;
+    max-width: 12.5rem;
 }
 
 aside {
     flex-grow: 1;
     background: #eee;
-    flex-basis: 606px;
+    flex-basis: 6.06rem;
 }

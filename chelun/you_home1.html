@@ -48,6 +48,22 @@
             overflow: hidden;
             object-fit: cover;
         }
+
+        .active {
+            background: #FF5762;
+            height: .08rem;
+            width: .24rem;
+            border-radius: .06rem;
+            margin: .12rem auto 0;
+        }
+
+        .none {
+            height: .08rem;
+            width: .24rem;
+            border-radius: .06rem;
+            margin: .12rem auto 0;
+            color: #999999;
+        }
     </style>
 </head>
 
@@ -60,8 +76,14 @@
             </div>
         </header>
         <sub class="head sub">
-            <div style="margin-right: .4rem; border-bottom: #FF5762 solid 8px;"><span class="head-font">推荐</span></div>
-            <div><span class="head-font" style="color:#999999;">关注</span></div>
+            <div onclick="active('rec')" style="margin-right: .4rem; ">
+                <span class="head-font">推荐</span>
+                <div id="rec" class="active"></div>
+            </div>
+            <div onclick="active('focus')" style="text-align: center;">
+                <span class="head-font">关注</span>
+                <div id="focus" class="none"></div>
+            </div>
         </sub>
         <main
             style="margin-top:16px;display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
@@ -191,6 +213,19 @@
             </li>
         </ul>
     </footer>
+    <script>
+        function active(id) {
+            let y = document.getElementById('focus');
+            let x = document.getElementById('rec');
+            x.setAttribute('class', 'none');
+            y.setAttribute('class', 'none');
+            if (id === 'focus') {
+                y.setAttribute('class', 'active');
+            } else {
+                x.setAttribute('class', 'active');
+            }
+        }
+    </script>
 </body>
 <style>
     .footer-font {

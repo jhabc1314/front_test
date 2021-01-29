@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>车主畅行卡</title>
+    <script src="./js/normal.js"></script>
+    <link rel="stylesheet" href="./css/normal.css">
+    <style>
+        header ul {
+            list-style: none;
+            margin: 0;
+            padding: 0 .32rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: .66rem;
+            overflow: hidden;
+        }
+
+        header ul li {
+            font-size: .36rem;
+            /* height: auto; */
+            line-height: .44rem;
+            vertical-align: middle;
+            color: #222222;
+        }
+
+        header .back {
+            display: table-cell;
+            width: .32rem;
+            height: .32rem;
+        }
+    </style>
+</head>
+
+<body style="background: #F8F9FA;">
+    <div>
+        <header style="background: #FFF;">
+            <ul>
+                <li><img class="back" src="./img/标题栏返回@2x.png" alt=""></li>
+                <li><span>车主畅行中国卡</span></li>
+                <li></li>
+            </ul>
+        </header>
+        <main style="min-height:7.89rem; padding-top: .48rem;background: #FFF;">
+            <section id="card">
+                <img src="./img/编组 8@2x.png" alt="" style="display:block;max-width:100%; height: auto;">
+            </section>
+            <section style="max-width: 7.1rem; margin: .19rem auto;">
+                <div
+                    style="background: center/contain no-repeat url(./img/矩形@2x.png); min-height: 1.7rem;padding-left: .41rem;padding-right:.26rem;display: flex;justify-content: space-between;">
+                    <div>
+                        <ul
+                            style="list-style: none;padding: 0; display: flex; flex-direction: column;justify-content: space-around; align-items: left;height: 100%;">
+                            <li><span style="color:#CE6A00;font-size:.28rem;">车轮补贴价</span></li>
+                            <li><span style="color: #FF5762;font-size: .32rem;">￥380</span></li>
+                            <li><span style="color:#CE6A00;font-size:.20rem;">全网最低价￥<span
+                                        style="text-decoration: line-through;">796</span></span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul
+                            style="list-style: none;padding: 0; display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 100%;">
+                            <li><span style='font-size: .36rem; color:#FFF;font-style: italic;'>车轮千万补贴</span></li>
+                            <li><span style='font-size: .20rem;color: #FFF;'>本场倒计时</span></li>
+                            <li><span style="background: #222;color:#FFF">15:15:15</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section style="max-width: 7.1rem; margin: .39rem auto;">
+                <ul
+                    style="display:flex; justify-content: space-between; align-items: center; list-style:none; padding:0 .11rem;">
+                    <li><span style="font-size: .36rem;color:#222222;font-weight: bold;">车主畅行中国卡</span></li>
+                    <li><img src="./img/我的icon@2x.png" alt=""
+                            style="display: table-cell; max-width: .32rem; height: auto; border-radius: 50%;"></li>
+                    <li><span style="color: #8D5214; font-size: .24rem;">车主 138**** 2742 购买成功</span></li>
+                </ul>
+            </section>
+
+        </main>
+        <main style="background: #FFF;">
+            <section class="buy"
+                style="max-width:7.1rem; min-height: 1.04rem; display: flex; justify-content: space-between; align-items: center; margin: .24rem auto; padding: 0.11rem;">
+                <div style="display: flex;height: 100%; align-items: center; justify-content: start;">
+                    <div style="color: #222222; font-size: .32rem; font-weight: bold;">购买数量</div>
+                    <div style="color: #999999; font-size: .28rem;margin-left: 16px;">每人限购5张</div>
+                </div>
+                <div style="display: flex; align-items: center; justify-content:end;">
+                    <img onclick="add()" src="./img/编组 2@2x.png" alt="" style="display: inline-block; max-width: .4rem; height: auto;">
+                    <div id="count" style="display: inline-block; font-size: .36rem; font-weight: bold;margin-left: .32rem;">1
+                    </div>
+                    <img onclick="sub()" src="./img/椭圆形@2x.png" alt=""
+                        style="display: inline-block; max-width: .4rem; margin-left: .32rem; height: auto;">
+                </div>
+            </section>
+        </main>
+<p>1
+    2 <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    3
+    4
+    5
+    6
+    7
+</p>
+        <footer style="margin-top: 1.12rem;">
+            <!--  -->
+            <section style="display: flex; height: 1.12rem;background: #FFF;position: fixed;bottom: 0; left:0; width: 100%;">
+                <div
+                    style="padding-left: .32rem; width: 100%;display: flex; flex-direction: column;justify-content: center;">
+                    <div><span style="color:#FF5762;font-size: .28rem;">￥398</span></div>
+                    <div style="display: flex; align-items: center; margin-top: 2px;" onclick="agree()">
+                        <img src="./img/椭圆形@2x.png" alt="" id="agree"
+                            style="display: inline-block; max-width: .24rem;height: auto;" />
+                        <div style="color: #999999; font-size: .24rem; line-height: 100%; height: 100%;">我已阅读并同意<span
+                                style="color: #222;">《用户协议》</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pay" style="max-width: 2.71rem; width: 100%; height: 100%;">
+                    <button onclick="alert('yes')"
+                        style="border: none; background:#FFD500;color: #222222;font-size: .32rem; display: inline-block; width: 100%;height: 100%;">立即付款</button>
+                </div>
+            </section>
+        </footer>
+    </div>
+    <script>
+        let card = document.getElementById("card");
+        card.addEventListener("touchstart", function(e) {
+            console.log("touchstart:",e);
+        });
+        card.addEventListener("touchmove", function(e){
+            console.log("touchmove:", e);
+        });
+        card.addEventListener("touchend", function(e) {
+            console.log("touchend:", e);
+        });
+        card.addEventListener("touchcancel", function(e) {
+            console.log("touchcancel:", e);
+        });
+        card.addEventListener("click", function(e) {
+            console.log("click",e);
+        });
+
+        let isAgree = false;
+        function agree() {
+            let c = document.getElementById("agree");
+            isAgree = !isAgree;
+            c.src = isAgree ? './img/椭圆形@2x(1).png' : './img/椭圆形@2x.png';
+        }
+        let count = 1;
+        function add() {
+            count++;
+            document.getElementById("count").innerText = count;
+        }
+        function sub() {
+            count--;
+            document.getElementById("count").innerText = count;
+        }
+    </script>
+</body>
+
+</html>

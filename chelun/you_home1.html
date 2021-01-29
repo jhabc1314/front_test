@@ -11,6 +11,23 @@
         body {
             color: #222;
         }
+        main {
+            /* border:1px solid red; */
+            /* transition: margin-left 1s; */
+            /* animation: 2s ease  touchmove; */
+        }
+        .moveleft {
+            animation: 1.5s linear  touchmove;
+        }
+        @keyframes touchmove {
+            from {
+                margin-left: 0;
+            }
+            to {
+                margin-left: -6rem;
+                margin-right: 6rem;
+            }
+        }
 
         .head {
             height: 0.88rem;
@@ -69,7 +86,7 @@
 </head>
 
 <body>
-    <div style="padding: 0 .32rem; overflow: hidden;">
+    <div style="padding: 0 .32rem; overflow: hidden; position: relative;">
         <header class="head">
             <div><img src="./img/you/编组 3@2x.png" alt="" style="display:inline-block; max-width:1.24rem; height: auto;">
             </div>
@@ -87,7 +104,7 @@
             </div>
         </sub>
         <main
-            style="overflow-y: scroll; margin-top:16px;display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+            style="margin-top:16px;display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
 
             <div class="container">
                 <div>
@@ -269,6 +286,34 @@
                 x.setAttribute('class', 'active');
             }
         }
+        let main = document.querySelector("main");
+        let point = 0;
+        let curPoint = 0;
+        let direction = 'to left';
+        const min_distance = 100;
+        main.addEventListener("touchstart", (e) => {
+            console.log(e);
+            point = e.touches[0].pageX;
+        });
+        main.addEventListener("touchmove", e => {
+            curPoint = e.touches[0].pageX;
+        });
+
+        main.addEventListener("touchend", (e) => {
+            if (Math.abs(curPoint - point) < min_distance) {
+                console.log("滑动距离太短:" + Math.abs(curPoint - point));
+                return;
+            }
+            if (curPoint > point) {
+                //往右滑动
+            } else {
+                //往左滑动
+                main.setAttribute('class', 'moveleft');
+            }
+            setTimeout(() => {
+                main.removeAttribute('class');
+            }, 1000);
+        })
     </script>
 </body>
 <style>

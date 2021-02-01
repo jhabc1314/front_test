@@ -15,29 +15,6 @@
         main {
             margin-top: 16px;
             padding: 0 .32rem;
-            /* border:1px solid red; */
-            /* transition: margin-left 1s; */
-            /* animation: 2s ease  touchmove; */
-        }
-
-        #main {
-            transition: margin-left, margin-right 1s;
-            /* margin-right: 100px; */
-        }
-
-        .moveleft {
-            animation: 1.5s linear touchmove;
-        }
-
-        @keyframes touchmove {
-            from {
-                margin-left: 0;
-            }
-
-            to {
-                margin-left: -6rem;
-                margin-right: 6rem;
-            }
         }
 
         .head {
@@ -54,6 +31,7 @@
             top: 0;
             left: 0;
             background: #FFF;
+            z-index: 1;
         }
 
         .head-font {
@@ -108,7 +86,7 @@
 </head>
 
 <body>
-    <div style="overflow: auto;">
+    <div>
         <header class="head">
             <div><img src="./img/you/编组 3@2x.png" alt="" style="display:inline-block; max-width:1.24rem; height: auto;">
             </div>
@@ -131,9 +109,10 @@
         </sub>
         <div>
             <!-- 推荐部分 -->
-            <div id="main" style="position:relative;top:0;left:0;display: flex; flex-wrap: nowrap; overflow-x: auto;">
+            <div id="main" style="position:relative;top:0;left:0;display: flex; flex-wrap: nowrap; overflow-x: hidden;">
                 <main
-                    style="min-width:100%;display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;" name="first">
+                    style="min-width:100%;display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;"
+                    name="first">
 
                     <div class="container">
                         <div>
@@ -335,7 +314,7 @@
                         <ul style="list-style: none;display: flex; justify-content: space-between;">
                             <li><img src="./img/you/转发@2x.png" class="focus-img" alt=""><span
                                     class="focus-text">转发</span></li>
-                            <li style="flex-grow: 1.5;"><img src="./img/you/评论@2x.png" class="focus-img" alt=""><span
+                            <li><img src="./img/you/评论@2x.png" class="focus-img" alt=""><span
                                     class="focus-text">7</span></li>
                             <li><img src="./img/you/收藏@2x.png" class="focus-img" alt=""><span
                                     class="focus-text">收藏</span></li>
@@ -383,7 +362,7 @@
                         <ul style="list-style: none;display: flex; justify-content: space-between;">
                             <li><img src="./img/you/转发@2x.png" class="focus-img" alt=""><span
                                     class="focus-text">转发</span></li>
-                            <li style="flex-grow: 1.5;"><img src="./img/you/评论@2x.png" class="focus-img" alt=""><span
+                            <li><img src="./img/you/评论@2x.png" class="focus-img" alt=""><span
                                     class="focus-text">7</span></li>
                             <li><img src="./img/you/收藏@2x.png" class="focus-img" alt=""><span
                                     class="focus-text">收藏</span></li>
@@ -425,7 +404,7 @@
             z.setAttribute('class', 'none');
             if (id === 'focus') {
                 y.setAttribute('class', 'active');
-            } else if (id === 'rec'){
+            } else if (id === 'rec') {
                 x.setAttribute('class', 'active');
             } else {
                 z.setAttribute('class', 'active');
@@ -439,6 +418,7 @@
         const screenWidth = window.innerWidth;
         const mainScrollWidth = main.scrollWidth;
         const pages = Math.floor(mainScrollWidth / screenWidth);//总的横屏页数
+        const actives = ['rec', 'focus', 'shequ'];
         main.addEventListener("touchstart", (e) => {
             //console.log(e);
             point = e.touches[0].pageX;
@@ -448,32 +428,30 @@
         });
 
         main.addEventListener("touchend", (e) => {
-            
-            // if (Math.abs(curPoint - point) < min_distance) {
-            //     console.log("滑动距离太短:" + Math.abs(curPoint - point));
-            //     return;
-            // }
+
             let direction = (curPoint > point) ? 'right' : 'left';
             console.log(main.scrollLeft);
             clearInterval(main.timer);//每次先清除上次的
             //计算本次需要滚动多远
             let curPage = Math.floor(main.scrollLeft / screenWidth);
-            let curEnd = direction === 'right' ? curPage * screenWidth : (curPage + 1) * screenWidth;//本次滑动的终点位置
+            let curEnd = direction === 'right' ? (curPage - 1) * screenWidth : (curPage + 1) * screenWidth;//本次滑动的终点位置
             console.log(curPage, curEnd);
             main.timer = setInterval(() => {
                 if (direction === 'left' && main.scrollLeft >= curEnd) {
                     clearInterval(main.timer);
+                    active(actives[curPage + 1]);
                     return;
                 }
                 if (direction === 'right' && main.scrollLeft <= curEnd) {
                     clearInterval(main.timer);
+                    active(actives[curPage - 1]);
                     return;
                 }
                 //计算当前应该移动量
                 let offset = Math.abs(curEnd - main.scrollLeft);
                 offset = offset < step_length ? offset : step_length;
                 main.scrollLeft = direction === 'right' ? (main.scrollLeft - offset) : (main.scrollLeft + offset);
-            }, 20);
+            }, 10);
             // setTimeout(() => {
             //     main.removeAttribute('class');
             // }, 1000);

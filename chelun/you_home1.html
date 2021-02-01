@@ -413,24 +413,30 @@
         let main = document.getElementById("main");
         let point = 0;
         let curPoint = 0;
+        let pointY = 0;
+        let curPointY = 0;
         const min_distance = 100;
         const step_length = 20;//步长
         const screenWidth = window.innerWidth;
         const mainScrollWidth = main.scrollWidth;
         const pages = Math.floor(mainScrollWidth / screenWidth);//总的横屏页数
         const actives = ['rec', 'focus', 'shequ'];
+
         main.addEventListener("touchstart", (e) => {
             //console.log(e);
             point = e.touches[0].pageX;
+            pointY = e.touches[0].pageY;
         });
         main.addEventListener("touchmove", e => {
             curPoint = e.touches[0].pageX;
+            curPointY = e.touches[0].pageY;
         });
 
         main.addEventListener("touchend", (e) => {
-
+            if (Math.abs(curPointY - pointY) > Math.abs(curPoint - point)) {
+                return;//说明是上下滑动，不管
+            }
             let direction = (curPoint > point) ? 'right' : 'left';
-            console.log(main.scrollLeft);
             clearInterval(main.timer);//每次先清除上次的
             //计算本次需要滚动多远
             let curPage = Math.floor(main.scrollLeft / screenWidth);
@@ -452,9 +458,6 @@
                 offset = offset < step_length ? offset : step_length;
                 main.scrollLeft = direction === 'right' ? (main.scrollLeft - offset) : (main.scrollLeft + offset);
             }, 10);
-            // setTimeout(() => {
-            //     main.removeAttribute('class');
-            // }, 1000);
         })
     </script>
 </body>

@@ -11,18 +11,29 @@
         body {
             color: #222;
         }
+
         main {
+            margin-top: 16px;
+            padding: 0 .32rem;
             /* border:1px solid red; */
             /* transition: margin-left 1s; */
             /* animation: 2s ease  touchmove; */
         }
-        .moveleft {
-            animation: 1.5s linear  touchmove;
+
+        #main {
+            transition: margin-left, margin-right 1s;
+            /* margin-right: 100px; */
         }
+
+        .moveleft {
+            animation: 1.5s linear touchmove;
+        }
+
         @keyframes touchmove {
             from {
                 margin-left: 0;
             }
+
             to {
                 margin-left: -6rem;
                 margin-right: 6rem;
@@ -30,6 +41,7 @@
         }
 
         .head {
+            padding: 0 .32rem;
             height: 0.88rem;
             display: flex;
             justify-content: space-between;
@@ -82,11 +94,21 @@
             color: #999999;
         }
 
+        .focus-img {
+            max-width: .4rem;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        .focus-text {
+            font-size: .24rem;
+            color: #222;
+        }
     </style>
 </head>
 
 <body>
-    <div style="padding: 0 .32rem; overflow: hidden; position: relative;">
+    <div style="overflow: auto;">
         <header class="head">
             <div><img src="./img/you/编组 3@2x.png" alt="" style="display:inline-block; max-width:1.24rem; height: auto;">
             </div>
@@ -98,161 +120,280 @@
                 <span class="head-font">推荐</span>
                 <div id="rec" class="active"></div>
             </div>
-            <div onclick="active('focus')" style="text-align: center;">
+            <div onclick="active('focus')" style="margin-right: .4rem;">
                 <span class="head-font">关注</span>
                 <div id="focus" class="none"></div>
             </div>
+            <div onclick="active('shequ')" style="margin-right: .4rem;">
+                <span class="head-font">社区</span>
+                <div id="shequ" class="none"></div>
+            </div>
         </sub>
-        <main
-            style="margin-top:16px;display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+        <div>
+            <!-- 推荐部分 -->
+            <div id="main" style="position:relative;top:0;left:0;display: flex; flex-wrap: nowrap; overflow-x: auto;">
+                <main
+                    style="min-width:100%;display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;" name="first">
 
-            <div class="container">
-                <div>
-                    <div>
-                        <img class="box" src="./img/you/bg3.jpeg" alt=""
-                            style="max-width: 100%; height: auto;" />
-                    </div>
-                    <div style="margin-top:.24rem">
-                        <img src="./img/you/话题@2x.png" alt=""
-                            style="vertical-align: middle; max-width:.36rem;height:auto;" />
-                        <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
-                        </span>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <img class="box" src="./img/you/bg2.jpeg" alt="" style="max-width: 100%; height: auto;" />
-                    </div>
-                    <div style="margin-top:.24rem">
-                        <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">要如何区分机油的好坏
-                        </span>
-                    </div>
-                    <div style="margin-top:.24rem;display: flex; justify-content: space-between; align-items: center;">
+                    <div class="container">
                         <div>
+                            <div>
+                                <img class="box" src="./img/you/bg3.jpeg" alt=""
+                                    style="max-width: 100%; height: auto;" />
+                            </div>
+                            <div style="margin-top:.24rem">
+                                <img src="./img/you/话题@2x.png" alt=""
+                                    style="vertical-align: middle; max-width:.36rem;height:auto;" />
+                                <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img class="box" src="./img/you/bg2.jpeg" alt=""
+                                    style="max-width: 100%; height: auto;" />
+                            </div>
+                            <div style="margin-top:.24rem">
+                                <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">要如何区分机油的好坏
+                                </span>
+                            </div>
+                            <div
+                                style="margin-top:.24rem;display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <img src="./img/you/Group 23备份 9@2x.png" alt=""
+                                        style="vertical-align: middle; max-width:.4rem;height:auto; border-radius: 50%;" />
+                                    <span
+                                        style="font-size: .24rem;color: #999999; vertical-align: middle;">啊啊Dark</span>
+                                </div>
+                                <div>
+                                    <img src="./img/you/喜欢@2x.png" alt=""
+                                        style="vertical-align: middle; max-width:.32rem;height:auto;" />
+                                    <span style="font-size: .24rem;color: #999999; vertical-align: middle;">271</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img class="box" src="./img/you/bg3.jpeg" alt=""
+                                    style="max-width: 100%; height: auto;" />
+                            </div>
+                            <div style="margin-top:.24rem">
+                                <img src="./img/you/话题@2x.png" alt=""
+                                    style="vertical-align: middle; max-width:.36rem;height:auto;" />
+                                <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img class="box" src="./img/you/bg4.jpeg" alt=""
+                                    style="max-width: 100%; height: auto;" />
+                            </div>
+                            <div style="margin-top:.24rem">
+                                <img src="./img/you/话题@2x.png" alt=""
+                                    style="vertical-align: middle; max-width:.36rem;height:auto;" />
+                                <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img class="box" src="./img/you/bg1.jpg" alt=""
+                                    style="max-width: 100%; height: auto;" />
+                            </div>
+                            <div style="margin-top:.24rem">
+                                <img src="./img/you/话题@2x.png" alt=""
+                                    style="vertical-align: middle; max-width:.36rem;height:auto;" />
+                                <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img class="box" src="./img/you/bg2.jpeg" alt=""
+                                    style="max-width: 100%; height: auto;" />
+                            </div>
+                            <div style="margin-top:.24rem">
+                                <img src="./img/you/话题@2x.png" alt=""
+                                    style="vertical-align: middle; max-width:.36rem;height:auto;" />
+                                <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div>
+                            <div>
+                                <img class="box" src="./img/you/bg1.jpg" alt=""
+                                    style="max-width: 100%; height: auto;" />
+                            </div>
+                            <div style="margin-top:.24rem">
+                                <img src="./img/you/话题@2x.png" alt=""
+                                    style="vertical-align: middle; max-width:.36rem;height:auto;" />
+                                <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img class="box" src="./img/you/bg4.jpeg" alt=""
+                                    style="max-width: 100%; height: auto;" />
+                            </div>
+                            <div style="margin-top:.24rem">
+                                <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">要如何区分机油的好坏
+                                </span>
+                            </div>
+                            <div
+                                style="margin-top:.24rem;display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <img src="./img/you/Group 23备份 9@2x.png" alt=""
+                                        style="vertical-align: middle; max-width:.4rem;height:auto; border-radius: 50%;" />
+                                    <span
+                                        style="font-size: .24rem;color: #999999; vertical-align: middle;">啊啊Dark</span>
+                                </div>
+                                <div>
+                                    <img src="./img/you/喜欢@2x.png" alt=""
+                                        style="vertical-align: middle; max-width:.32rem;height:auto;" />
+                                    <span style="font-size: .24rem;color: #999999; vertical-align: middle;">271</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img class="box" src="./img/you/bg2.jpeg" alt=""
+                                    style="max-width: 100%; height: auto;" />
+                            </div>
+                            <div style="margin-top:.24rem">
+                                <img src="./img/you/话题@2x.png" alt=""
+                                    style="vertical-align: middle; max-width:.36rem;height:auto;" />
+                                <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img class="box" src="./img/you/bg4.jpeg" alt=""
+                                    style="max-width: 100%; height: auto;" />
+                            </div>
+                            <div style="margin-top:.24rem">
+                                <img src="./img/you/话题@2x.png" alt=""
+                                    style="vertical-align: middle; max-width:.36rem;height:auto;" />
+                                <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <img class="box" src="./img/you/bg3.jpeg" alt=""
+                                    style="max-width: 100%; height: auto;" />
+                            </div>
+                            <div style="margin-top:.24rem">
+                                <img src="./img/you/话题@2x.png" alt=""
+                                    style="vertical-align: middle; max-width:.36rem;height:auto;" />
+                                <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <!-- 关注部分 -->
+                <main name="second" style="min-width: 100%;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div style="display: flex;">
                             <img src="./img/you/Group 23备份 9@2x.png" alt=""
-                                style="vertical-align: middle; max-width:.4rem;height:auto; border-radius: 50%;" />
-                            <span style="font-size: .24rem;color: #999999; vertical-align: middle;">啊啊Dark</span>
+                                style="max-width:.64rem; max-height:auto;display: inline-block; border-radius: 50%; vertical-align: middle;margin-right: 16px;">
+                            <div>
+                                <div style="font-size: .28rem; font-weight: bold;color: #222;">造物说</div>
+                                <div>
+                                    <img src="./img/you/形状结合.png" alt=""
+                                        style="max-width: .14rem;height: auto; vertical-align: middle;">
+                                    <span style="font-size: .22rem;color: #999;">上海-东方明珠·2020.05.24</span>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <img src="./img/you/喜欢@2x.png" alt=""
-                                style="vertical-align: middle; max-width:.32rem;height:auto;" />
-                            <span style="font-size: .24rem;color: #999999; vertical-align: middle;">271</span>
-                        </div>
+                        <img src="./img/you/更多@2x.png" alt=""
+                            style="max-width: .48rem; max-height: .48rem; vertical-align: middle;">
                     </div>
-                </div>
-                <div>
-                    <div>
-                        <img class="box" src="./img/you/bg3.jpeg" alt="" style="max-width: 100%; height: auto;" />
+                    <div style="margin-top:40px">
+                        <img src="./img/you/banner.png" alt="" style="max-width:100%; height: auto;">
                     </div>
-                    <div style="margin-top:.24rem">
-                        <img src="./img/you/话题@2x.png" alt=""
-                            style="vertical-align: middle; max-width:.36rem;height:auto;" />
-                        <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
-                        </span>
+                    <div style="margin-top: 40px;">
+                        <span
+                            style="font-size: .28rem; color: #222; font-weight: bold;">主管要学会三个方向的沟通：向上沟通，要有胆量；平行沟通，要有肺腑；向下沟通，要有心肝向下…</span>
                     </div>
-                </div>
-                <div>
-                    <div>
-                        <img class="box" src="./img/you/bg4.jpeg" alt="" style="max-width: 100%; height: auto;" />
+                    <div style="margin-top:40px; padding: .32rem;background:#F8F9FA">
+                        <ul style="list-style:none;">
+                            <li><span style="font-size: .24rem;font-weight: bold;">吃土：</span><span
+                                    style="font-size: .24rem;color:#666;">哈哈哈，确实如此</span></li>
+                            <li><span style="font-size: .24rem;font-weight: bold;">造物说：</span><span
+                                    style="font-size: .24rem;color:#666;">如果你有什么好的想法也可以说出来哈</span></li>
+                            <li><span style="font-size: .24rem;font-weight: bold;">灵感是业余者：</span><span
+                                    style="font-size: .24rem;color:#666;">同意</span></li>
+                        </ul>
                     </div>
-                    <div style="margin-top:.24rem">
-                        <img src="./img/you/话题@2x.png" alt=""
-                            style="vertical-align: middle; max-width:.36rem;height:auto;" />
-                        <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
-                        </span>
+                    <div style="margin-top: 40px;">
+                        <ul style="list-style: none;display: flex; justify-content: space-between;">
+                            <li><img src="./img/you/转发@2x.png" class="focus-img" alt=""><span
+                                    class="focus-text">转发</span></li>
+                            <li style="flex-grow: 1.5;"><img src="./img/you/评论@2x.png" class="focus-img" alt=""><span
+                                    class="focus-text">7</span></li>
+                            <li><img src="./img/you/收藏@2x.png" class="focus-img" alt=""><span
+                                    class="focus-text">收藏</span></li>
+                            <li><img src="./img/you/喜欢@2x.png" class="focus-img" alt=""><span
+                                    class="focus-text">271</span></li>
+                        </ul>
                     </div>
-                </div>
-                <div>
-                    <div>
-                        <img class="box" src="./img/you/bg1.jpg" alt="" style="max-width: 100%; height: auto;" />
-                    </div>
-                    <div style="margin-top:.24rem">
-                        <img src="./img/you/话题@2x.png" alt=""
-                            style="vertical-align: middle; max-width:.36rem;height:auto;" />
-                        <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
-                        </span>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <img class="box" src="./img/you/bg2.jpeg" alt="" style="max-width: 100%; height: auto;" />
-                    </div>
-                    <div style="margin-top:.24rem">
-                        <img src="./img/you/话题@2x.png" alt=""
-                            style="vertical-align: middle; max-width:.36rem;height:auto;" />
-                        <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div>
-                    <div>
-                        <img class="box" src="./img/you/bg1.jpg" alt="" style="max-width: 100%; height: auto;" />
-                    </div>
-                    <div style="margin-top:.24rem">
-                        <img src="./img/you/话题@2x.png" alt=""
-                            style="vertical-align: middle; max-width:.36rem;height:auto;" />
-                        <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
-                        </span>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <img class="box" src="./img/you/bg4.jpeg" alt="" style="max-width: 100%; height: auto;" />
-                    </div>
-                    <div style="margin-top:.24rem">
-                        <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">要如何区分机油的好坏
-                        </span>
-                    </div>
-                    <div style="margin-top:.24rem;display: flex; justify-content: space-between; align-items: center;">
-                        <div>
+                </main>
+                <!-- 本地部分 -->
+                <main name="third" style="min-width: 100%;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <div style="display: flex;">
                             <img src="./img/you/Group 23备份 9@2x.png" alt=""
-                                style="vertical-align: middle; max-width:.4rem;height:auto; border-radius: 50%;" />
-                            <span style="font-size: .24rem;color: #999999; vertical-align: middle;">啊啊Dark</span>
+                                style="max-width:.64rem; max-height:auto;display: inline-block; border-radius: 50%; vertical-align: middle;margin-right: 16px;">
+                            <div>
+                                <div style="font-size: .28rem; font-weight: bold;color: #222;">造物说</div>
+                                <div>
+                                    <img src="./img/you/形状结合.png" alt=""
+                                        style="max-width: .14rem;height: auto; vertical-align: middle;">
+                                    <span style="font-size: .22rem;color: #999;">上海-东方明珠·2020.05.24</span>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <img src="./img/you/喜欢@2x.png" alt=""
-                                style="vertical-align: middle; max-width:.32rem;height:auto;" />
-                            <span style="font-size: .24rem;color: #999999; vertical-align: middle;">271</span>
-                        </div>
+                        <img src="./img/you/更多@2x.png" alt=""
+                            style="max-width: .48rem; max-height: .48rem; vertical-align: middle;">
                     </div>
-                </div>
-                <div>
-                    <div>
-                        <img class="box" src="./img/you/bg2.jpeg" alt="" style="max-width: 100%; height: auto;" />
+                    <div style="margin-top:40px">
+                        <img src="./img/you/banner.png" alt="" style="max-width:100%; height: auto;">
                     </div>
-                    <div style="margin-top:.24rem">
-                        <img src="./img/you/话题@2x.png" alt=""
-                            style="vertical-align: middle; max-width:.36rem;height:auto;" />
-                        <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
-                        </span>
+                    <div style="margin-top: 40px;">
+                        <span
+                            style="font-size: .28rem; color: #222; font-weight: bold;">主管要学会三个方向的沟通：向上沟通，要有胆量；平行沟通，要有肺腑；向下沟通，要有心肝向下…</span>
                     </div>
-                </div>
-                <div>
-                    <div>
-                        <img class="box" src="./img/you/bg4.jpeg" alt="" style="max-width: 100%; height: auto;" />
+                    <div style="margin-top:40px; padding: .32rem;background:#F8F9FA">
+                        <ul style="list-style:none;">
+                            <li><span style="font-size: .24rem;font-weight: bold;">吃土：</span><span
+                                    style="font-size: .24rem;color:#666;">哈哈哈，确实如此</span></li>
+                            <li><span style="font-size: .24rem;font-weight: bold;">造物说：</span><span
+                                    style="font-size: .24rem;color:#666;">如果你有什么好的想法也可以说出来哈</span></li>
+                            <li><span style="font-size: .24rem;font-weight: bold;">灵感是业余者：</span><span
+                                    style="font-size: .24rem;color:#666;">同意</span></li>
+                        </ul>
                     </div>
-                    <div style="margin-top:.24rem">
-                        <img src="./img/you/话题@2x.png" alt=""
-                            style="vertical-align: middle; max-width:.36rem;height:auto;" />
-                        <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
-                        </span>
+                    <div style="margin-top: 40px;">
+                        <ul style="list-style: none;display: flex; justify-content: space-between;">
+                            <li><img src="./img/you/转发@2x.png" class="focus-img" alt=""><span
+                                    class="focus-text">转发</span></li>
+                            <li style="flex-grow: 1.5;"><img src="./img/you/评论@2x.png" class="focus-img" alt=""><span
+                                    class="focus-text">7</span></li>
+                            <li><img src="./img/you/收藏@2x.png" class="focus-img" alt=""><span
+                                    class="focus-text">收藏</span></li>
+                            <li><img src="./img/you/喜欢@2x.png" class="focus-img" alt=""><span
+                                    class="focus-text">271</span></li>
+                        </ul>
                     </div>
-                </div>
-                <div>
-                    <div>
-                        <img class="box" src="./img/you/bg3.jpeg" alt="" style="max-width: 100%; height: auto;" />
-                    </div>
-                    <div style="margin-top:.24rem">
-                        <img src="./img/you/话题@2x.png" alt=""
-                            style="vertical-align: middle; max-width:.36rem;height:auto;" />
-                        <span style="font-size: .28rem; font-weight: bold;vertical-align: middle;">喜欢一早充满阳光
-                        </span>
-                    </div>
-                </div>
+                </main>
             </div>
-        </main>
+        </div>
     </div>
     <footer style="margin-top: 1.04rem; ">
         <ul
@@ -278,21 +419,28 @@
         function active(id) {
             let y = document.getElementById('focus');
             let x = document.getElementById('rec');
+            let z = document.getElementById('shequ');
             x.setAttribute('class', 'none');
             y.setAttribute('class', 'none');
+            z.setAttribute('class', 'none');
             if (id === 'focus') {
                 y.setAttribute('class', 'active');
-            } else {
+            } else if (id === 'rec'){
                 x.setAttribute('class', 'active');
+            } else {
+                z.setAttribute('class', 'active');
             }
         }
-        let main = document.querySelector("main");
+        let main = document.getElementById("main");
         let point = 0;
         let curPoint = 0;
-        let direction = 'to left';
         const min_distance = 100;
+        const step_length = 20;//步长
+        const screenWidth = window.innerWidth;
+        const mainScrollWidth = main.scrollWidth;
+        const pages = Math.floor(mainScrollWidth / screenWidth);//总的横屏页数
         main.addEventListener("touchstart", (e) => {
-            console.log(e);
+            //console.log(e);
             point = e.touches[0].pageX;
         });
         main.addEventListener("touchmove", e => {
@@ -300,19 +448,35 @@
         });
 
         main.addEventListener("touchend", (e) => {
-            if (Math.abs(curPoint - point) < min_distance) {
-                console.log("滑动距离太短:" + Math.abs(curPoint - point));
-                return;
-            }
-            if (curPoint > point) {
-                //往右滑动
-            } else {
-                //往左滑动
-                main.setAttribute('class', 'moveleft');
-            }
-            setTimeout(() => {
-                main.removeAttribute('class');
-            }, 1000);
+            
+            // if (Math.abs(curPoint - point) < min_distance) {
+            //     console.log("滑动距离太短:" + Math.abs(curPoint - point));
+            //     return;
+            // }
+            let direction = (curPoint > point) ? 'right' : 'left';
+            console.log(main.scrollLeft);
+            clearInterval(main.timer);//每次先清除上次的
+            //计算本次需要滚动多远
+            let curPage = Math.floor(main.scrollLeft / screenWidth);
+            let curEnd = direction === 'right' ? curPage * screenWidth : (curPage + 1) * screenWidth;//本次滑动的终点位置
+            console.log(curPage, curEnd);
+            main.timer = setInterval(() => {
+                if (direction === 'left' && main.scrollLeft >= curEnd) {
+                    clearInterval(main.timer);
+                    return;
+                }
+                if (direction === 'right' && main.scrollLeft <= curEnd) {
+                    clearInterval(main.timer);
+                    return;
+                }
+                //计算当前应该移动量
+                let offset = Math.abs(curEnd - main.scrollLeft);
+                offset = offset < step_length ? offset : step_length;
+                main.scrollLeft = direction === 'right' ? (main.scrollLeft - offset) : (main.scrollLeft + offset);
+            }, 20);
+            // setTimeout(() => {
+            //     main.removeAttribute('class');
+            // }, 1000);
         })
     </script>
 </body>

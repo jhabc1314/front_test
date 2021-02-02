@@ -90,7 +90,7 @@
     <!-- 弹框 -->
     <div id="alert" style="background: rgba(0, 0, 0, 0.7); width: 100vw; height: 100vh;position: fixed;left:0;top:0;z-index: 1000; display: none; justify-content: center;align-items: center;">
         <div style="background:#FFF; border-radius:24px; width: 5.12rem; height: 2.84rem;">
-            <div style="height:1.87rem;display: flex; flex-direction: column; justify-content: space-around;align-items: center;">
+            <div id="alertContent" style="height:1.87rem;display: flex; flex-direction: column; justify-content: space-around;align-items: center;">
                 <div style="font-size: .32rem; color: #333; font-weight: bold;">登录失败</div>
                 <div style="font-size: .28rem; color:#333;">账号限制登录，请联系管理员</div>
             </div>
@@ -104,11 +104,19 @@
         const avatar = document.getElementById('logo');
         const toast = document.getElementById('alert');
         const alertConfirm = document.getElementById('alertConfirm');
+        const alertContent = document.getElementById('alertContent');
         avatar.addEventListener('click', (e) => {
             toast.style.display = 'flex';
         });
         alertConfirm.addEventListener('click', (e) => {
             toast.style.display = 'none';
+        });
+        toast.addEventListener('click', e => {
+            toast.style.display = 'none';
+        });
+        alertContent.addEventListener('click', e => {
+            e.stopPropagation();
+            //啥也不干，阻止事件冒泡
         });
     </script>
 </body>

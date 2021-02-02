@@ -433,7 +433,7 @@
         });
 
         main.addEventListener("touchend", (e) => {
-            if (Math.abs(curPointY - pointY) > Math.abs(curPoint - point)) {
+            if (curPointY != pointY) {
                 return;//说明是上下滑动，不管
             }
             let direction = (curPoint > point) ? 'right' : 'left';
@@ -458,7 +458,7 @@
                 offset = offset < step_length ? offset : step_length;
                 main.scrollLeft = direction === 'right' ? (main.scrollLeft - offset) : (main.scrollLeft + offset);
             }, 10);
-        })
+        });
     </script>
 </body>
 <style>

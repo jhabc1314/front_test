@@ -25,7 +25,7 @@
     <div>
         <div style="background:#FFF;border-radius:.24rem .24rem 0 0; margin-top: 2rem;padding: 0 .32rem; max-height: .78rem;">
             <!-- 头像 -->
-            <img src="./img/you/mine/TX9484_05.jpeg" alt=""
+            <img src="./img/you/mine/TX9484_05.jpeg" alt="" id="logo"
                 style="border-radius: 50%; width: 1.56rem; height: 1.56rem; position: relative; left: .32rem; top: -0.78rem; z-index: 1;">
         </div>
         <div style="background:#FFF;padding: 0 .32rem;margin-top: -.39rem">
@@ -86,6 +86,31 @@
         <!-- 我的动态 -->
         <iframe src="./you_home1.html" frameborder="0" width="100%" height="1000px"></iframe>
     </div>
+    <!-- 组件 -->
+    <!-- 弹框 -->
+    <div id="alert" style="background: rgba(0, 0, 0, 0.7); width: 100vw; height: 100vh;position: fixed;left:0;top:0;z-index: 1000; display: none; justify-content: center;align-items: center;">
+        <div style="background:#FFF; border-radius:24px; width: 5.12rem; height: 2.84rem;">
+            <div style="height:1.87rem;display: flex; flex-direction: column; justify-content: space-around;align-items: center;">
+                <div style="font-size: .32rem; color: #333; font-weight: bold;">登录失败</div>
+                <div style="font-size: .28rem; color:#333;">账号限制登录，请联系管理员</div>
+            </div>
+            <div id="alertConfirm" style="border-top:1px solid #E8E8E8; text-align: center; height: .95rem; line-height: .95rem;">
+                <span style="color: #FF5762; font-size: .32rem;font-weight: bold;">确定</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const avatar = document.getElementById('logo');
+        const toast = document.getElementById('alert');
+        const alertConfirm = document.getElementById('alertConfirm');
+        avatar.addEventListener('click', (e) => {
+            toast.style.display = 'flex';
+        });
+        alertConfirm.addEventListener('click', (e) => {
+            toast.style.display = 'none';
+        });
+    </script>
 </body>
 
 </html>

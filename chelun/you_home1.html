@@ -85,7 +85,7 @@
     </style>
 </head>
 
-<body>
+<body style="max-width: 750px;">
     <div>
         <header class="head">
             <div><img src="./img/you/编组 3@2x.png" alt="" style="display:inline-block; max-width:1.24rem; height: auto;">
@@ -109,7 +109,7 @@
         </sub>
         <div>
             <!-- 推荐部分 -->
-            <div id="main" style="position:relative;top:0;left:0;display: flex; flex-wrap: nowrap; overflow-x: hidden;">
+            <div id="main" style="display: flex; flex-wrap: nowrap; overflow-x: hidden;">
                 <main
                     style="min-width:100%;display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;"
                     name="first">
@@ -410,7 +410,7 @@
                 z.setAttribute('class', 'active');
             }
         }
-        let main = document.getElementById("main");
+        const main = document.getElementById("main");
         let point = 0;
         let curPoint = 0;
         let pointY = 0;
@@ -421,18 +421,19 @@
         const mainScrollWidth = main.scrollWidth;
         const pages = Math.floor(mainScrollWidth / screenWidth);//总的横屏页数
         const actives = ['rec', 'focus', 'shequ'];
-
+        
         main.addEventListener("touchstart", (e) => {
             //console.log(e);
             point = e.touches[0].pageX;
-            pointY = e.touches[0].pageY;
+            pointY = (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop);
         });
         main.addEventListener("touchmove", e => {
             curPoint = e.touches[0].pageX;
-            curPointY = e.touches[0].pageY;
         });
 
         main.addEventListener("touchend", (e) => {
+            curPointY = (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop);
+            
             if (curPointY != pointY) {
                 return;//说明是上下滑动，不管
             }
@@ -441,7 +442,7 @@
             //计算本次需要滚动多远
             let curPage = Math.floor(main.scrollLeft / screenWidth);
             let curEnd = direction === 'right' ? (curPage - 1) * screenWidth : (curPage + 1) * screenWidth;//本次滑动的终点位置
-            console.log(curPage, curEnd);
+            //console.log(curPage, curEnd);
             main.timer = setInterval(() => {
                 if (direction === 'left' && main.scrollLeft >= curEnd) {
                     clearInterval(main.timer);
@@ -458,6 +459,10 @@
                 offset = offset < step_length ? offset : step_length;
                 main.scrollLeft = direction === 'right' ? (main.scrollLeft - offset) : (main.scrollLeft + offset);
             }, 10);
+        });
+        main.addEventListener("scroll", (e) => {
+            console.log(e);
+            console.log(e.scrollTop);
         });
     </script>
 </body>

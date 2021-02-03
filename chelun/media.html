@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>media</title>
+    <link rel="stylesheet" href="./css/normal.css">
+    <script src="./js/normal.js"></script>
+    <style>
+        #app {
+            width: 100%;
+            height: 100vh;
+            overflow: auto;
+            background: rgba(255, 255, 255, .5);
+        }
+
+        #one {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            color: #FFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="one">
+            <div style="padding: 0 .32rem;display:flex;justify-content: space-between; width: 100%;margin-top: .6rem;">
+                <img src="./img/you/video/返回icon.png" alt="" style="width: .48rem; height: .48rem;">
+                <img src="./img/you/video/路径.png" alt="" style="width: .48rem; height: .48rem;">
+            </div>
+            <div id="play" style="width:100%;position:absolute; top:50vh; text-align: center;z-index: 2;">
+                <img src="./img/you/video/编组 10.png" alt="" style="width:1.2rem;height:1.2rem">
+            </div>
+            <div
+                style="width:100%;display: flex;justify-content: space-between;padding:0 .32rem;position: absolute;bottom: 1.03rem;left: 0;">
+                <!-- 左边 -->
+                <div style="display:flex;flex-direction:column; justify-content: space-around;min-height:3.17rem;">
+                    <div
+                        style="background: rgba(0, 0, 0, 0.3);width:2rem;height:.56rem;line-height: .56rem;text-align: center;border-radius: .28rem;">
+                        <img src="./img/you/video/a a.png" alt=""
+                            style="width: .36rem;height: .36rem;vertical-align: middle;">
+                        <span style="vertical-align: middle;">同款好物</span>
+                    </div>
+                    <div style="display:flex;">
+                        <div style="margin-right: .16rem;">
+                            <img src="./img/you/mine/TX9484_05.jpeg" alt=""
+                                style="max-width: .64rem;max-height: .64rem;border-radius: 50%;">
+                        </div>
+                        <div>
+                            <div style="font-size: .28rem;">剥洋葱问到底</div>
+                            <div>
+                                <img src="./img/you/video/形状结合.png" alt=""
+                                    style="width: .14rem; height: .17rem; vertical-align: middle;">
+                                <span style="vertical-align: middle;font-size: .22rem;">浙北大峡谷.2020.12.14</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="font-size: .24rem;">拼搭5小时，成片半分钟</div>
+                    <div
+                        style="border-radius: 8px;width: 2.58rem;height: .56rem; text-align: center;line-height: .56rem;background: rgba(0, 0, 0, 0.3);">
+                        <img src="./img/you/video/矩形备份.png" alt=""
+                            style="width: .36rem;height:.36rem; vertical-align: middle;">
+                        <span style="font-size: .24rem; vertical-align: middle;">喜欢一早一米阳光</span>
+                    </div>
+                </div>
+                <!-- 右边 -->
+                <div style="display: flex; flex-direction: column;justify-content: space-around;min-height: 3.81rem;">
+                    <div><img src="./img/you/video/点赞.png" alt="" style="width: .64rem;height: .64rem;"></div>
+                    <div><img src="./img/you/video/留言.png" alt="" style="width: .64rem;height: .64rem;"></div>
+                    <div><img src="./img/you/video/收藏.png" alt="" style="width: .64rem;height: .64rem;"></div>
+                </div>
+            </div>
+            <div style="position: absolute; bottom:0;width: 100%;left: 0;padding: 0 .32rem;">
+                <!-- 留言 -->
+                <div style="background: #FFF;height: 1px;opacity: 0.2;"></div>
+                <div style="height: 1.03rem;display: flex; justify-content: space-between; align-items: center;">
+                    <span style="display: inline-block;font-size: .28rem;color:rgba(255, 255, 255);">说点什么</span>
+                    <img src="./img/you/video/矩形.png" alt="" style="width: .48rem; height: .48rem;">
+                </div>
+            </div>
+        </div>
+        <video preload="auto" id="video" style="width: 100%;height: 100%;background: rgba(0, 0, 0, 0.2);"
+            src="http://s2.pstatp.com/cdn/expire-1-M/byted-player-videos/1.0.0/xgplayer-demo.mp4"
+            poster="./img/you/bg2.jpeg" ></video>
+    </div>
+
+    <script>
+        const v = document.getElementById('video');
+        const play = document.getElementById('play');
+        const app =document.getElementById('app');
+        play.addEventListener('click', e => {
+            console.log(e);
+            v.play();
+            play.style.display = 'none';
+            e.stopPropagation();
+        });
+        app.addEventListener('click', e => {
+            v.pause();
+            play.style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>

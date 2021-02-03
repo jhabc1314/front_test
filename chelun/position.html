@@ -1,16 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <div style="position: relative;overflow: auto; top: 20px; left: 100px; border: 1px solid red; width: 200px;">
+    <div onclick="c()"
+        style="position: relative;overflow: auto; top: 20px; left: 100px; border: 1px solid red; width: 200px;height:200px">
         我相对定位
         <div style="height:50px;position: absolute; top: 10px; left: 10px; border: 1px solid black;">
             我绝对定位
         </div>
+        <input type="file" style="display:none">
     </div>
+    <video controls width="400px" height="200px"
+        src="http://s2.pstatp.com/cdn/expire-1-M/byted-player-videos/1.0.0/xgplayer-demo.mp4"></video>
+    <script>
+        const v = document.querySelector('video');
+
+        function c() {
+            document.querySelector('input').click();
+            console.log(v.muted, v.controls, v.duration, v.currentTime, v.src, v.volume, v.videoHeight, v.height);
+
+            v.play().catch(error => {
+                console.log(error);
+            });
+        }
+    </script>
 </body>
+
 </html>

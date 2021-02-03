@@ -17,13 +17,22 @@
             margin-right: 16px;
             padding: 7px .24rem 8px .24rem;
         }
+        .protocol {
+            color: #222;
+        }
+        #wxLogin {
+            transition: top 0.5s;
+        }
+        #wxLogin button:focus {
+            outline: none;
+        }
     </style>
 </head>
 
-<body
-    style="background:left 0 top 0 / contain no-repeat url(./img/you/mine/矩形.png); max-width: 750px; margin: 0 auto;">
+<body style="background:left 0 top 0 / contain no-repeat url(./img/you/mine/矩形.png); max-width: 750px; margin: 0 auto;">
     <div>
-        <div style="background:#FFF;border-radius:.24rem .24rem 0 0; margin-top: 2rem;padding: 0 .32rem; max-height: .78rem;">
+        <div
+            style="background:#FFF;border-radius:.24rem .24rem 0 0; margin-top: 2rem;padding: 0 .32rem; max-height: .78rem;">
             <!-- 头像 -->
             <img src="./img/you/mine/TX9484_05.jpeg" alt="" id="logo"
                 style="border-radius: 50%; width: 1.56rem; height: 1.56rem; position: relative; left: .32rem; top: -0.78rem; z-index: 1;">
@@ -38,7 +47,7 @@
                     <span style="font-size: .24rem; color: #222;">编辑资料</span>
                 </div>
                 <div
-                    style="border: 1px solid #E8E8E8; border-radius: 50%; height: .64rem; min-width: .64rem;text-align: center;line-height: .64rem;">
+                    style="border: 1px solid #E8E8E8; border-radius: 50%; height: .64rem; min-width: .64rem;text-align: center;line-height: .64rem;" id="setDiv">
                     <img src="./img/you/mine/a a@2x.png" alt=""
                         style="max-width: .44rem; max-height: .44rem; vertical-align: middle;">
                 </div>
@@ -88,23 +97,53 @@
     </div>
     <!-- 组件 -->
     <!-- 弹框 -->
-    <div id="alert" style="background: rgba(0, 0, 0, 0.7); width: 100vw; height: 100vh;position: fixed;left:0;top:0;z-index: 1000; display: none; justify-content: center;align-items: center;">
+    <div id="alert"
+        style="background: rgba(0, 0, 0, 0.7); width: 100vw; height: 100vh;position: fixed;left:0;top:0;z-index: 1000; display: none; justify-content: center;align-items: center;">
         <div style="background:#FFF; border-radius:24px; width: 5.12rem; height: 2.84rem;">
-            <div id="alertContent" style="height:1.87rem;display: flex; flex-direction: column; justify-content: space-around;align-items: center;">
+            <div id="alertContent"
+                style="height:1.87rem;display: flex; flex-direction: column; justify-content: space-around;align-items: center;">
                 <div style="font-size: .32rem; color: #333; font-weight: bold;">登录失败</div>
                 <div style="font-size: .28rem; color:#333;">账号限制登录，请联系管理员</div>
             </div>
-            <div id="alertConfirm" style="border-top:1px solid #E8E8E8; text-align: center; height: .95rem; line-height: .95rem;">
+            <div id="alertConfirm"
+                style="border-top:1px solid #E8E8E8; text-align: center; height: .95rem; line-height: .95rem;">
                 <span style="color: #FF5762; font-size: .32rem;font-weight: bold;">确定</span>
             </div>
         </div>
     </div>
-
+    <!-- 微信登陆 -->
+    <div id="wxLogin"
+        style="display: block;z-index:2000;position: absolute;width: 100vw;height: 100vh;top: 101vh;left: 0;background: #FFF;">
+        <div id ="wxLoginClose" style="padding-left: .32rem;height: .88rem; width: .50rem; display: flex;align-items: center;">
+            <img src="./img/you/mine/关闭.png" alt="" style="width: .48rem;height: .48rem">
+        </div>
+        <div style="margin-top:2rem; text-align: center;"><img src="./img/you/mine/有盐.png" alt="" style="width: 2.06rem; height: .8rem;">
+        </div>
+        <div style="margin-top:2.56rem;">
+            <div style="padding: 0 .9rem;">
+                <button
+                    style="background:#222;width: 100%;border-radius: .48rem;height: .96rem;text-align: center;border: none;display: flex;align-items: center; justify-content: center;">
+                    <img src="./img/you/mine/微信小icon.png" alt=""
+                        style="width:.48rem;height: .48rem;display: inline-flex;">
+                    <span style="color:#FFF;font-size:.32rem;margin-left: .16rem;display: inline-flex;">微信登录</span>
+                </button>
+            </div>
+            <div style="text-align: center;margin-top: .4rem;">
+                <span style="font-size:.28rem;color:#222;">其他登录方式</span>
+            </div>
+        </div>
+        <div style="position: absolute; width: 100%; bottom: .64rem;left: 0; text-align: center;">
+            <span style="color:#999;font-size:.24rem;display: block;max-width: 4.8rem;margin: 0 auto;">登录注册代表你已同意 <a href="#" class="protocol">用户协议</a> 和 <a href="#" class="protocol">隐私政策</a> 以及 <a href="#" class="protocol">联通统一认证服务条款</a></span>
+        </div>
+    </div>
     <script>
         const avatar = document.getElementById('logo');
         const toast = document.getElementById('alert');
         const alertConfirm = document.getElementById('alertConfirm');
         const alertContent = document.getElementById('alertContent');
+        const wxLogin = document.getElementById('wxLogin');
+        const wxLoginClose = document.getElementById('wxLoginClose');
+        const setDiv = document.getElementById('setDiv');
         avatar.addEventListener('click', (e) => {
             toast.style.display = 'flex';
         });
@@ -118,6 +157,13 @@
             e.stopPropagation();
             //啥也不干，阻止事件冒泡
         });
+        setDiv.addEventListener('click', e => {
+            wxLogin.style.top = 0 + 'px';
+        });
+        wxLoginClose.addEventListener('click', e=>{
+            wxLogin.style.top = '101vh';
+        });
+        
     </script>
 </body>
 

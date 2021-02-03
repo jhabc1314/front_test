@@ -113,9 +113,9 @@
     </div>
     <!-- 微信登陆 -->
     <div id="wxLogin"
-        style="display: block;z-index:2000;position: absolute;width: 100vw;height: 100vh;top: 101vh;left: 0;background: #FFF;">
+        style="display: block;z-index:2000;position: fixed;width: 100vw;height: 100vh;top: 101vh;left: 0;background: #FFF;overflow: hidden;">
         <div id ="wxLoginClose" style="padding-left: .32rem;height: .88rem; width: .50rem; display: flex;align-items: center;">
-            <img src="./img/you/mine/关闭.png" alt="" style="width: .48rem;height: .48rem">
+            <img src="./img/you/mine/关闭.png" alt="" style="max-width: .48rem;max-height: .48rem; vertical-align: middle;">
         </div>
         <div style="margin-top:2rem; text-align: center;"><img src="./img/you/mine/有盐.png" alt="" style="width: 2.06rem; height: .8rem;">
         </div>
@@ -158,10 +158,29 @@
             //啥也不干，阻止事件冒泡
         });
         setDiv.addEventListener('click', e => {
+            wxLogin.style.display = 'block';
             wxLogin.style.top = 0 + 'px';
+            document.body.style.position = 'fixed';
+            document.body.style.height = '100vh';
+            document.body.style.top = 0;
+            document.body.style.left = 0;
+            document.body.style.overflow = 'hidden';
+            document.body.style.width = '100%';
         });
         wxLoginClose.addEventListener('click', e=>{
             wxLogin.style.top = '101vh';
+            document.body.style.position = 'unset';
+            document.body.style.height = 'initial';
+            document.body.style.top = 'unset';
+            document.body.style.left = 'unset';
+            document.body.style.overflow = 'initial';
+            document.body.style.width = 'initial';
+            setTimeout(() => {
+                wxLogin.style.display = 'none';
+            }, 500);
+        });
+        wxLogin.addEventListener('scroll', e => {
+            e.preventDefault();
         });
         
     </script>
